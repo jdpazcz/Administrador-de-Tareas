@@ -1,0 +1,68 @@
+﻿@model List<ParametrosEntrada>
+@{
+    ViewData["Title"] = "Consultar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+
+
+
+
+        <div class="col-md-200">
+            <table class="table table-bordered">
+
+                <thead>
+                    <tr>
+
+
+                        <th>Nombre</th>
+                        <th>Actividad o Tarea</th>
+                        <th>Estatus</th>
+                        <th>Opciones</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+
+                            <td>@x.Nombre</td>
+                            <td>@x.Actividad</td>
+                            <td>@x.Estatus</td>
+                          
+
+                            <td>
+                                <a asp-action="Actualizar" asp-controller="Eventos" asp-route-ID="@x.ID" class="badge bg-primary">Editar</a>
+                                <a asp-action="Eliminar" asp-controller="Eventos" asp-route-ID="@x.ID" class="badge bg-primary">Eliminar</a><br>
+                                <a asp-action="Agregar" asp-controller="Eventos" class="badge bg-primary">Crear Nuevo</a>
+
+                            </td>
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+
+
